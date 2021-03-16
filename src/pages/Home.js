@@ -19,9 +19,31 @@ const Home = () => {
 
   return (
     <GameListStyle>
+      <h2>Popular Games</h2>
+      <GamesStyle>
+        {popular.map((game) => (
+          <Game
+            name={game.name}
+            released={game.released}
+            key={game.id}
+            image={game.background_image}
+          />
+        ))}
+      </GamesStyle>
       <h2>Upcoming Games</h2>
       <GamesStyle>
         {upcoming.map((game) => (
+          <Game
+            name={game.name}
+            released={game.released}
+            key={game.id}
+            image={game.background_image}
+          />
+        ))}
+      </GamesStyle>
+      <h2>New Games</h2>
+      <GamesStyle>
+        {newGames.map((game) => (
           <Game
             name={game.name}
             released={game.released}
