@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../actions/gamesAction";
 //Components
 import Game from "../components/Game";
+import GameDetails from "../components/GameDetails";
 //Styling and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -19,6 +20,7 @@ const Home = () => {
 
   return (
     <GameListStyle>
+      <GameDetails />
       <h2>Popular Games</h2>
       <GamesStyle>
         {popular.map((game) => (
