@@ -7,9 +7,11 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const Game = ({ name, released, image, id }) => {
-  //Load Details
+  //Load Details Handler
+
   const dispatch = useDispatch();
   const loadDetailsHandler = () => {
+    document.body.style.overflow = "hidden";
     dispatch(loadDetails(id));
   };
 
