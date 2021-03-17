@@ -7,7 +7,7 @@ import Game from "../components/Game";
 import GameDetails from "../components/GameDetails";
 //Styling and Animation
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
 const Home = () => {
   //Get the current Location
@@ -24,41 +24,47 @@ const Home = () => {
 
   return (
     <GameListStyle>
-      {pathId && <GameDetails />}
-      <h2>Popular Games</h2>
-      <GamesStyle>
-        {popular.map((game) => (
-          <Game
-            name={game.name}
-            released={game.released}
-            key={game.id}
-            id={game.id}
-            image={game.background_image}
-          />
-        ))}
-      </GamesStyle>
-      <h2>Upcoming Games</h2>
-      <GamesStyle>
-        {upcoming.map((game) => (
-          <Game
-            name={game.name}
-            released={game.released}
-            key={game.id}
-            image={game.background_image}
-          />
-        ))}
-      </GamesStyle>
-      <h2>New Games</h2>
-      <GamesStyle>
-        {newGames.map((game) => (
-          <Game
-            name={game.name}
-            released={game.released}
-            key={game.id}
-            image={game.background_image}
-          />
-        ))}
-      </GamesStyle>
+      <AnimateSharedLayout type="crossfade">
+        <AnimatePresence>
+          {pathId && <GameDetails pathId={pathId} />}
+        </AnimatePresence>
+        <h2>Popular Games</h2>
+        <GamesStyle>
+          {popular.map((game) => (
+            <Game
+              name={game.name}
+              released={game.released}
+              key={game.id}
+              id={game.id}
+              image={game.background_image}
+            />
+          ))}
+        </GamesStyle>
+        <h2>Upcoming Games</h2>
+        <GamesStyle>
+          {upcoming.map((game) => (
+            <Game
+              name={game.name}
+              released={game.released}
+              key={game.id}
+              id={game.id}
+              image={game.background_image}
+            />
+          ))}
+        </GamesStyle>
+        <h2>New Games</h2>
+        <GamesStyle>
+          {newGames.map((game) => (
+            <Game
+              name={game.name}
+              released={game.released}
+              key={game.id}
+              id={game.id}
+              image={game.background_image}
+            />
+          ))}
+        </GamesStyle>
+      </AnimateSharedLayout>
     </GameListStyle>
   );
 };
