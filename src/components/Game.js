@@ -6,6 +6,7 @@ import smallImage from "../util";
 //Styling and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { popup } from "../animations";
 
 const Game = ({ name, released, image, id }) => {
   const stringId = id.toString();
@@ -18,7 +19,13 @@ const Game = ({ name, released, image, id }) => {
   };
 
   return (
-    <StyledGame layoutId={stringId} onClick={loadDetailsHandler}>
+    <StyledGame
+      variants={popup}
+      initial="hidden"
+      animate="show"
+      layoutId={stringId}
+      onClick={loadDetailsHandler}
+    >
       <Link to={`/game/${id}`}>
         <motion.h3 layoutId={`title ${stringId}`}>{name}</motion.h3>
         <p>{released}</p>
