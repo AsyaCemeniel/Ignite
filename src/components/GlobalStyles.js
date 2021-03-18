@@ -49,6 +49,11 @@ img {
     display: block;
 }
 
+input {
+    font-weight: bold;
+    font-family: 'Scada', sans-serif;
+}
+
 `;
 
 export default GlobalStyles;
